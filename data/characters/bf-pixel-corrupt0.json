@@ -1,7 +1,7 @@
 {
   "version": "1.0.1",
-  "name": "Pixel Boyfriend (Corrupt 1)",
-  "assetPath": "characters/bfPixel-C1",
+  "name": "Pixel Boyfriend (Corrupt 0)",
+  "assetPath": "characters/bfPixel-C0",
   "flipX": true,
   "renderType": "multisparrow",
   "singTime": 8.0,
