@@ -27,8 +27,8 @@ class SeniorSong extends Song {
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-                // COMMENT THIS OUT ONCE THE VIDEO IS MADE
-                PlayState.instance.isBotPlayMode = true;
+                // COMMENT THIS OUT ONCE YOUR DONE WITH IT
+                // PlayState.instance.isBotPlayMode = true;
 
 		if (PlayState.instance.isBotPlayMode) {
 			PlayState.instance.healthBar.visible = false;
