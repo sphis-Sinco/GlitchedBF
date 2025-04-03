@@ -33,11 +33,11 @@
     },
     "album": "corrupt1",
     "stage": "schoolErect",
-    "noteStyle": "pixel",
+    "noteStyle": "pixel-c0",
     "ratings": {
       "easy": 6,
-      "hard": 12,
-      "normal": 10
+      "normal": 10,
+      "hard": 12
     },
     "previewStart": 0,
     "previewEnd": 0
