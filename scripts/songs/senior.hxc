@@ -18,10 +18,6 @@ class SeniorSong extends Song {
 		super('senior');
 	}
 
-	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
-		return !Save.instance.hasBeatenSong(this.id, null);
-	}
-
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
