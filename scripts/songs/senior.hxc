@@ -117,5 +117,9 @@ class SeniorSong extends Song {
 		// We may need to wait for the outro to play.
 		PlayState.instance.currentStage.resume();
 		Countdown.performCountdown();
+                
+                
+                // This should play when senpai switches from happy to MAD
+                // FunkinSound.playOnce(Paths.sound('ANGRY_TEXT_BOX'), 1.0);
 	}
 }
