@@ -25,9 +25,11 @@ class SeniorSong extends Song {
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-		// Skip the cutscene on the normal variation if we are in Freeplay.
-		// if (PlayState.instance.currentVariation == 'default' && !PlayStatePlaylist.isStoryMode)
-		//	hasPlayedCutscene = true;
+		if (!PlayStatePlaylist.isStoryMode)
+			disableCutscene('Dialogue disabled for freeplay');
+
+		if (!PlayStatePlaylist.isChartingMode)
+			disableCutscene('Dialogue disabled for charting');
 
 		if (!hasPlayedCutscene) {
 			trace('Pausing countdown to play cutscene.');
@@ -37,11 +39,17 @@ class SeniorSong extends Song {
 			event.cancel(); // CANCEL THE COUNTDOWN!
 
 			//  pausing is breaking a lot in the erect stage for some reason disabling this for the sake of not running into issues atm
-			//  PlayState.instance.currentStage.pause();
+			PlayState.instance.currentStage.pause();
 
 			transitionToDialogue();
 		}
 	}
+
+        function disableCutscene(msg:String)
+        {
+                trace('Disabling dialogue for "' + this.id + '": ' + msg);
+                hasPlayedCutscene = true;
+        }
 
 	function transitionToDialogue() {
 		trace('Transitioning to dialogue.');
@@ -75,8 +83,7 @@ class SeniorSong extends Song {
 	}
 
 	function startDialogue() {
-		var targetDialogue = 'senior';
-		PlayState.instance.startConversation(targetDialogue);
+		PlayState.instance.startConversation(this.id);
 	}
 
 	/**
