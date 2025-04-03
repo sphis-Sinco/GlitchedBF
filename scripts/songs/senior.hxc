@@ -1,5 +1,3 @@
-package scripts.songs;
-
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.tweens.FlxEase;
@@ -37,7 +35,7 @@ class SeniorSong extends Song {
 			PlayState.instance.iconP2.visible = false;
 			PlayState.instance.scoreText.visible = false;
 		} else {
-                        if (!PlayStatePlaylist.isChartingMode) {
+                        if (PlayStatePlaylist.isChartingMode) {
                                 disableCutscene('Dialogue disabled for charting');
                         } else if (!PlayStatePlaylist.isStoryMode) {
                                 disableCutscene('Dialogue disabled for freeplay');
