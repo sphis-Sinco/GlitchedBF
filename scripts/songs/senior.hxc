@@ -27,7 +27,7 @@ class SeniorSong extends Song {
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-		if (!PlayStatePlaylist.isChartingMode) {
+		if (!PlayStatePlaylist.isChartingMode && !PlayState.instance.isBotPlayMode) {
 			disableCutscene('Dialogue disabled for charting');
 		} else if (!PlayStatePlaylist.isStoryMode) {
 			disableCutscene('Dialogue disabled for freeplay');
