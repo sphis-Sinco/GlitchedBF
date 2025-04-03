@@ -14,7 +14,9 @@
   "playData": {
     "songVariations": [    ],
     "difficulties": [
-      "normal"
+      "normal",
+      "easy",
+      "hard"
     ],
     "characters": {
       "player": "bf-pixel-corrupt0",
@@ -33,6 +35,8 @@
     "stage": "schoolErect",
     "noteStyle": "pixel",
     "ratings": {
+      "easy": 6,
+      "hard": 12,
       "normal": 10
     },
     "previewStart": 0,
