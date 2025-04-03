@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+
+  "backdrop": {
+    "type": "solid",
+    "fadeTime": 2.0,
+    "color": "#BFB3DFD8"
+  },
+
+  "music": {
+    "asset": "Lunchbox",
+    "fadeTime": 2.0,
+    "looped": true
+  },
+
+  "outro": {
+    "type": "fade",
+    "fadeTime": 1.0
+  },
+
+  "dialogue": [
+    {
+      "speaker": "senpai",
+      "speakerAnimation": "talkEnter",
+      "box": "roses",
+      "boxAnimation": "enter",
+
+      "text": [
+        "Ah, a familiar maiden has come in search of true love at a harmonizing time like this!"
+      ]
+    },
+    {
+      "speaker": "senpai",
+      "speakerAnimation": "talk",
+      "box": "roses",
+      "boxAnimation": "speaking",
+
+      "text": [
+        "A sequel in our serenade shall decide where her beautiful heart shall reside."
+      ]
+    },
+    {
+      "speaker": "bf-pixel",
+      "speakerAnimation": "talkEnter",
+      "box": "roses",
+      "boxAnimation": "speaking",
+
+      "text": [
+        "var params:PlayStateParams = {botPlayMode: true, practiceMode: true};",
+        "\nvar playState:PlayState = new PlayState(params);",
+        "\nsource/funkin/modding/PolymodErrorHandler.hx:84: [ERROR] Error while executing function GrantAdminAccess.new()#10: EUnknownVariable UnknownVariable error: Tried to access \"PlayState\", an unknown variable or identifier."
+      ]
+    }
+  ]
+}
