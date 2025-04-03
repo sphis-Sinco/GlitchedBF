@@ -35,7 +35,8 @@ class ModVersionText extends Module
 			// We are moving into the main menu.
 			trace("Mod Version Text for Main Menu");
 
-			event.targetState.rightWatermarkText.text = 'Glitched BF v'+VERSION;
+			event.targetState.rightWatermarkText.text += '\nGlitched BF indev';
+			event.targetState.rightWatermarkText.y -= 18;
 		}
 	}
 }
