@@ -1,3 +1,5 @@
+package scripts.songs;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.tweens.FlxEase;
@@ -25,11 +27,19 @@ class SeniorSong extends Song {
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-		if (!PlayStatePlaylist.isStoryMode)
-			disableCutscene('Dialogue disabled for freeplay');
-
-		if (!PlayStatePlaylist.isChartingMode)
+		if (!PlayStatePlaylist.isChartingMode) {
 			disableCutscene('Dialogue disabled for charting');
+		} else if (!PlayStatePlaylist.isStoryMode) {
+			disableCutscene('Dialogue disabled for freeplay');
+		}
+
+		if (PlayState.instance.isBotPlayMode) {
+			PlayState.instance.healthBar.visible = false;
+			PlayState.instance.healthBarBG.visible = false;
+			PlayState.instance.iconP1.visible = false;
+			PlayState.instance.iconP2.visible = false;
+			PlayState.instance.scoreText.visible = false;
+		}
 
 		if (!hasPlayedCutscene) {
 			trace('Pausing countdown to play cutscene.');
@@ -45,11 +55,10 @@ class SeniorSong extends Song {
 		}
 	}
 
-        function disableCutscene(msg:String)
-        {
-                trace('Disabling dialogue for "' + this.id + '": ' + msg);
-                hasPlayedCutscene = true;
-        }
+	function disableCutscene(msg:String) {
+		trace('Disabling dialogue for "' + this.id + '": ' + msg);
+		hasPlayedCutscene = true;
+	}
 
 	function transitionToDialogue() {
 		trace('Transitioning to dialogue.');
