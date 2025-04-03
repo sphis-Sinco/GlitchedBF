@@ -27,11 +27,8 @@ class SeniorSong extends Song {
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-		if (!PlayStatePlaylist.isChartingMode && !PlayState.instance.isBotPlayMode) {
-			disableCutscene('Dialogue disabled for charting');
-		} else if (!PlayStatePlaylist.isStoryMode) {
-			disableCutscene('Dialogue disabled for freeplay');
-		}
+                // COMMENT THIS OUT ONCE THE VIDEO IS MADE
+                PlayState.instance.isBotPlayMode = true;
 
 		if (PlayState.instance.isBotPlayMode) {
 			PlayState.instance.healthBar.visible = false;
@@ -39,7 +36,13 @@ class SeniorSong extends Song {
 			PlayState.instance.iconP1.visible = false;
 			PlayState.instance.iconP2.visible = false;
 			PlayState.instance.scoreText.visible = false;
-		}
+		} else {
+                        if (!PlayStatePlaylist.isChartingMode) {
+                                disableCutscene('Dialogue disabled for charting');
+                        } else if (!PlayStatePlaylist.isStoryMode) {
+                                disableCutscene('Dialogue disabled for freeplay');
+                        }
+                }
 
 		if (!hasPlayedCutscene) {
 			trace('Pausing countdown to play cutscene.');
@@ -49,7 +52,7 @@ class SeniorSong extends Song {
 			event.cancel(); // CANCEL THE COUNTDOWN!
 
 			//  pausing is breaking a lot in the erect stage for some reason disabling this for the sake of not running into issues atm
-			PlayState.instance.currentStage.pause();
+			// PlayState.instance.currentStage.pause();
 
 			transitionToDialogue();
 		}
@@ -92,7 +95,8 @@ class SeniorSong extends Song {
 	}
 
 	function startDialogue() {
-		PlayState.instance.startConversation(this.id);
+		var targetDialogue = 'senior';
+		PlayState.instance.startConversation(targetDialogue);
 	}
 
 	/**
